@@ -1,0 +1,15 @@
+node_modules/
+.env
+dist/
+.DS_Store
+coverage/
+*.log
+node_modules/
+**/node_modules/
+.env
+.env.*
+!.env.example
+dist/
+coverage/
+
+meow.zip
