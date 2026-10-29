@@ -14,7 +14,12 @@ import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 const app = express();
 app.use(helmet());
-app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:5173" }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://imovies-tan-five.vercel.app"
+  ]
+}));
 app.use(express.json({ limit: "20kb" }));
 app.use("/api/auth", rateLimit({ windowMs: 15 * 60 * 1000, limit: 100 }));
 app.get("/api/health", (_req, res) => res.json({ status: "ok", service: "iMovies API" }));
